@@ -1,5 +1,8 @@
 FROM ubuntu:16.04
 
+LABEL maintainer "tombenke@gmail.com"
+LABEL respository "https://github.com/tombenke/dmos"
+
 ENV HOME /home/developer
 ENV MOS_PORT /dev/ttyUSB0
 WORKDIR /home/developer
@@ -26,3 +29,4 @@ RUN sed "s/^dialout.*/&developer/" /etc/group -i
 USER developer
 RUN sudo curl -fsSL https://mongoose-os.com/downloads/mos/install.sh | /bin/sh    
 ENV PATH="${HOME}/.mos/bin/:${PATH}"
+EXPOSE 1992
